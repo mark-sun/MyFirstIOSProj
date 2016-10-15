@@ -15,6 +15,8 @@
 		C2F113421DAB6FC6002F3189 /* MyFirstIOSProjTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F113411DAB6FC6002F3189 /* MyFirstIOSProjTests.swift */; };
 		C2F1134D1DAB6FC6002F3189 /* MyFirstIOSProjUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F1134C1DAB6FC6002F3189 /* MyFirstIOSProjUITests.swift */; };
 		C2F1135D1DB0D401002F3189 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F1135C1DB0D401002F3189 /* RatingControl.swift */; };
+		C2F113731DB2F3E5002F3189 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F113721DB2F3E5002F3189 /* Meal.swift */; };
+		C2F113741DB2F3E5002F3189 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F113721DB2F3E5002F3189 /* Meal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,7 @@
 		C2F1134C1DAB6FC6002F3189 /* MyFirstIOSProjUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFirstIOSProjUITests.swift; sourceTree = "<group>"; };
 		C2F1134E1DAB6FC6002F3189 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2F1135C1DB0D401002F3189 /* RatingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
+		C2F113721DB2F3E5002F3189 /* Meal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +109,7 @@
 				C2F113331DAB6FC6002F3189 /* Assets.xcassets */,
 				C2F113351DAB6FC6002F3189 /* LaunchScreen.storyboard */,
 				C2F113381DAB6FC6002F3189 /* Info.plist */,
+				C2F113721DB2F3E5002F3189 /* Meal.swift */,
 			);
 			path = MyFirstIOSProj;
 			sourceTree = "<group>";
@@ -259,6 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2F113731DB2F3E5002F3189 /* Meal.swift in Sources */,
 				C2F1132F1DAB6FC6002F3189 /* ViewController.swift in Sources */,
 				C2F1135D1DB0D401002F3189 /* RatingControl.swift in Sources */,
 				C2F1132D1DAB6FC6002F3189 /* AppDelegate.swift in Sources */,
@@ -269,6 +274,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2F113741DB2F3E5002F3189 /* Meal.swift in Sources */,
 				C2F113421DAB6FC6002F3189 /* MyFirstIOSProjTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
