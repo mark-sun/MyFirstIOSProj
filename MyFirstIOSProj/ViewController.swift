@@ -32,34 +32,34 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
     // MARK: Actions
-    @IBAction func touchImage(sender: UITapGestureRecognizer) {
+    @IBAction func touchImage(_ sender: UITapGestureRecognizer) {
         showPhotoLibPicker()
     }
     
     // MARK: UITextFieldDelegate
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // hide the keyboard
         textField.resignFirstResponder()
         return true
     }
-    func textFieldDidEndEditing(textField: UITextField) {
+    func textFieldDidEndEditing(_ textField: UITextField) {
         checkValidMealName()
         navigationItem.title = textbox.text
     }
-    func textFieldDidBeginEditing(textField: UITextField) {
-        saveButton.enabled = false
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        saveButton.isEnabled = false
     }
     func checkValidMealName() {
         let text = textbox.text ?? ""
-        saveButton.enabled = !text.isEmpty
+        saveButton.isEnabled = !text.isEmpty
     }
     
     // MARK: UIImagePickerControllerDelegate
-    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         // Dismiss the picker if the user canceled.
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         // The info dictionary contains multiple representations of the image, and this uses the original.
         let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         
@@ -67,7 +67,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         imageBox.image = selectedImage
         
         // Dismiss the picker.
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     func showPhotoLibPicker () {
@@ -78,18 +78,18 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         let imagePickerController = UIImagePickerController()
         
         // Only allow photos to be picked, not taken.
-        imagePickerController.sourceType = .PhotoLibrary
+        imagePickerController.sourceType = .photoLibrary
         
         // Make sure ViewController is notified when the user picks an image.
         imagePickerController.delegate = self
         
-        presentViewController(imagePickerController, animated: true, completion: nil)
+        present(imagePickerController, animated: true, completion: nil)
     }
     
     // MARK: Navigation
     // This method lets you configure a view controller before it's presented.
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if saveButton === sender {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if sender as? UIBarButtonItem === saveButton {
             let name = textbox.text ?? ""
             let photo = imageBox.image
             let rating = ratingControl.rating
@@ -98,8 +98,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
             meal = Meal(name: name, photo: photo, rating: rating)
         }
     }
-    @IBAction func cancel(sender: UIBarButtonItem) {
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
     }
     
     

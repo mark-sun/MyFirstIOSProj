@@ -40,25 +40,25 @@ class MealTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return meals.count
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         // Configure the cell...
         // Table view cells are reused and should be dequeued using a cell identifier.
         let cellIdentifier = "MealTableViewCell"
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! MealTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! MealTableViewCell
         
         // Fetches the appropriate meal for the data source layout.
-        let meal = meals[indexPath.row]
+        let meal = meals[(indexPath as NSIndexPath).row]
         
         cell.mealName.text = meal.name
         cell.mealImage.image = meal.photo
@@ -113,12 +113,12 @@ class MealTableViewController: UITableViewController {
     */
 
     // MARK: Actions
-    @IBAction func unwindToMealList(sender: UIStoryboardSegue) {
-        if let sourceViewController = sender.sourceViewController as? ViewController, meal = sourceViewController.meal {
+    @IBAction func unwindToMealList(_ sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.source as? ViewController, let meal = sourceViewController.meal {
             // Add a new meal.
-            let newIndexPath = NSIndexPath(forRow: meals.count, inSection: 0)
+            let newIndexPath = IndexPath(row: meals.count, section: 0)
             meals.append(meal)
-            tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
+            tableView.insertRows(at: [newIndexPath], with: .bottom)
         }
     }
 }
